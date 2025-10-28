@@ -7,6 +7,8 @@ async function apiFetch(url) {
 
 const getData = async () => {
   const data = await apiFetch('http://localhost:8080/professional');
+      console.log('Full data object:', data);
+     console.log('data.base64Image:', data.base64Image);
   displayAllData(data);
 };
 
@@ -26,6 +28,8 @@ function displayProfessionalName(n) {
 }
 
 function displayImage(img) {
+  console.log('base64image type:', typeof img);
+    console.log('base64image value:', img)
   let image = document.getElementById('professionalImage');
   image.src = `data:image/png;base64, ${img}`;
 }
@@ -53,7 +57,7 @@ function displayLinkedInLink(data) {
   let linkedInLink = document.getElementById('linkedInLink');
   linkedInLink.innerHTML = data.linkedInLink.text;
   linkedInLink.href = data.linkedInLink.link;
-}n
+}
 
 function displayGitHubLink(data) {
   let githubLink = document.getElementById('githubLink');
